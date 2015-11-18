@@ -1,0 +1,88 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.searchEngine {
+  margin-top: 3px;
+  text-align: center;
+}
+
+.registerInput {
+  text-align: center;  
+  width: 20vw;
+}
+
+button#register.btn-default, button#login.btn-default {
+  margin-left: 25px;
+}
+
+.form-control {
+  text-align: center;
+}
+
+.loginInput {
+  text-align: center;
+  width: 20vw;
+}
+
+.twitter-follow-button {
+  font-size: 20px;
+  color: white;
+}
+
+#profilePic {
+  border: 2px inset;
+  width: 250px;
+  height: 250px;
+  border-radius: 20px;
+}
+
+.inbox, .tweet {
+  border: 2px inset;
+  border-radius: 2px;
+  padding: 5px;
+  color: white;
+  margin-right: 2px;
+}
+
+.profileInfo {
+  border: 2px inset;
+  width: 250px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 20px;
+  height: 190px;
+  font-size: 17px;
+  color: white;
+}
+
+.tweet {
+  width: 50px;
+  height: 30px;
+  border-radius: 20px;
+  border: 2px white inset;
+  background-color: transparent;
+}
+
+.tweetSomething {
+  margin-top: 5px;
+}
+
+.slides {
+  border-radius: 20px;
+  opacity: 0.8;
+}
+
+body, html {
+  background-color: #87CEFA;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  color: white;
+  background-color: transparent;
+}
