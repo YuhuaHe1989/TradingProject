@@ -6,9 +6,9 @@ let Schema = mongoose.Schema;
 let Item;
 
 let itemSchema = Schema({
-  name: { type: String, required: true },
-  price: { type: Number, required: true},
-  description: { type: String, required: true },
+  name: { type: String, required: false },
+  price: { type: Number, required: false},
+  description: { type: String, required: false },
  });
 
 Item = mongoose.model('Item', itemSchema);

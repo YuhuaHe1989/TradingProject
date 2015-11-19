@@ -28,8 +28,14 @@ router.get('/edit', function(req, res){
 //   })
 // });
 
+router.put('/', function(req, res){
+  console.log('data',req.body);
+  Item.findByIdAndUpdate(req.body._id, req.body, function(err, editedItem){
+    res.status(err ? 400 : 200).send(err || editedItem);
+  })
+});
+
 router.post('/', function(req, res){
-  console.log(req.body);
   let item = new Item(req.body);
   item.save(err => {
     res.status(err ? err : 200).send(err || item);
@@ -38,9 +44,15 @@ router.post('/', function(req, res){
 
 router.get('/', function(req, res){
   Item.find({}, function(err, items) {
-    console.log('items ', items);
     res.render('profile', {items: items});
   })
+});
+
+router.delete('/', function(req, res){
+  console.log(req.body._id);
+  Item.findByIdAndRemove(req.body._id, function(err, room) {
+    res.status(err ? 400 : 200).send(err ? 'item delete failed' : 'item deleted.');
+  });
 });
 
 module.exports = router;

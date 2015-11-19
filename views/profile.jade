@@ -65,13 +65,13 @@ block content
               th.col-xs-1 Edit
               th.col-xs-1 Delete
           tbody#list
-            
-              tr#sample
-                td.name = item.name
-                td.price = item.price
-                td.description = item.description
-                td: a.edit(href='#' data-toggle="modal" data-target="#myModal"): i.fa.fa-pencil-square-o.fa-lg
-                td: a.remove(href='#'): i.fa.fa-trash-o.fa-lg
+            each item in items
+              tr#sample(data-value= item._id)
+                td.name= item.name
+                td.price= item.price
+                td.description= item.description
+                td: a.edit(href='#' data-toggle="modal" data-target="#editItemModal"): i.fa.fa-pencil-square-o.fa-lg
+                td: a.delete(href='#'): i.fa.fa-trash-o.fa-lg
 
   #addItemModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
     .modal-dialog(role='document')
@@ -92,6 +92,26 @@ block content
         .modal-footer
           button.modalCloseBtn.btn.btn-default(type='button', data-dismiss='modal') Close
           button.modalSaveBtn.btn.btn-primary(type='button' id="updateNewItem") Save changes
+
+  #editItemModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          button#modalWindowClose.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+          h4#myModalLabel.modal-title Edit Item
+        .modal-body
+          label Name:
+          input#modalInputNameEdit(type='text')
+        .modal-body
+          label Price:
+          input#modalInputPriceEdit(type='text')
+        .modal-body
+          label Description:
+          input#modalInputDescriptionEdit(type='text')
+        .modal-footer
+          button.modalCloseBtn.btn.btn-default(type='button', data-dismiss='modal') Close
+          button.modalSaveBtn.btn.btn-primary(type='button' id="editExistItem") Save changes
 
 block js
   script(src='js/profile.js')

@@ -15,8 +15,4 @@ router.get('/login', function(req, res){
   res.render('login', {title: "Login"});
 })
 
-router.get('/profile', function(req, res){
-  res.render('profile');
-})
-
 module.exports = router;
