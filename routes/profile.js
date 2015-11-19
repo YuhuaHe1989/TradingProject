@@ -22,28 +22,29 @@ router.get('/edit', function(req, res){
   res.render('profileedit');
 });
 
-// router.put('/', function(req, res){
-//   User.findByIdAndUpdate(req.body._id, req.body, function(err, user){
-//     res.status(err ? 400 : 200).send(err || user);
-//   })
-// });
-
 router.put('/', function(req, res){
+  User.findByIdAndUpdate(req.body._id, req.body, function(err, user){
+    res.status(err ? 400 : 200).send(err || user);
+  })
+});
+
+router.put('/:username', function(req, res){
   console.log('data',req.body);
   Item.findByIdAndUpdate(req.body._id, req.body, function(err, editedItem){
     res.status(err ? 400 : 200).send(err || editedItem);
   })
 });
 
-router.post('/', function(req, res){
+router.post('/:username', function(req, res){
   let item = new Item(req.body);
   item.save(err => {
     res.status(err ? err : 200).send(err || item);
   });
 });
 
-router.get('/', function(req, res){
-  Item.find({}, function(err, items) {
+router.get('/:username', function(req, res){
+console.log(req.body);
+  Item.find({userId: req.body.userId}, function(err, items) {
     res.render('profile', {items: items});
   })
 });

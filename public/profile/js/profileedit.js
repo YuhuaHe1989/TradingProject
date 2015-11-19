@@ -27,8 +27,7 @@ function saveChange() {
     url: '/profile',
     data: edit,
     success: function(data) {
-      console.log(data);
-      //window.location.replace('/profile');
+      window.location.replace('/profile');
     }
   })
   // $.put('/profile', edit)

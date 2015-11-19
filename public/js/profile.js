@@ -20,7 +20,7 @@ function goToUserProfile(e) {
   $.post('/profile', update)
   .done(function(data){
     $('#username').text(data.username);
-    window.location.replace('/profile');
+    window.location.replace('/profile' + data.username);
   });
 }
 

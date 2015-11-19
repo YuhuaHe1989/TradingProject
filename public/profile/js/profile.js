@@ -2,6 +2,8 @@
 
 var editIndex;
 var itemId;
+var username;
+var userId;
 
 $(document).ready(init);
 
@@ -13,7 +15,10 @@ function init(){
   $('.delete').on('click',deleteItem);
   $('#editExistItem').on('click',saveEditItem);
 
-   $.get('/profile')
+  username = document.cookie.split(' ')[0].slice(9).replace(';','');
+  userId = document.cookie.split(' ')[1].slice(7).replace(/"/g,'');
+
+   $.get('/profile/' + username)
   .done(function(data){
 
   })
@@ -46,13 +51,12 @@ function saveEditItem(){
 
   $.ajax({
     type: 'PUT',
-    url: '/profile',
+    url: '/profile/' + username,
     data: edited,
     success: function(data){
       console.log(data);
     }
   })
-
 
   $('#editItemModal').modal('hide');
 }
@@ -64,7 +68,7 @@ function deleteItem(){
   itemDelete._id = itemId;
   $.ajax({
     type: 'DELETE',
-    url: '/profile',
+    url: '/profile/' + username,
     data: itemDelete,
     success: function(data){
       // console.log(data);
@@ -88,12 +92,13 @@ function addNewItem(){
   newItem.name = name;
   newItem.price = price;
   newItem.description = description;
+  newItem.userId = userId;
 
   $('#modalInputName').val(' ');
   $('#modalInputPrice').val(' ');
   $('#modalInputDescription').val(' ');
 
-  $.post('/profile', newItem)
+  $.post('/profile/' + username, newItem)
   .done(function(data){
     itemRow(data);
   })
@@ -118,7 +123,7 @@ function itemRow (newItem){
 function goToUserProfile(e) {
   e.preventDefault();
 
-  $.post('/profile', update)
+  $.post('/profile' + username, update)
   .done(function(data){
     $('#username').text(data.username);
     window.location.replace('/profile');
@@ -136,7 +141,7 @@ function updateInfo(e){
   update.username = username;
   update._id = id;
 
-  $.post('/profile', update)
+  $.post('/profile' + username, update)
   .done(function(data){
     $('#username').text(data.username);
     window.location.replace('/profile/edit');

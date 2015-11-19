@@ -20,7 +20,7 @@ function saveChange() {
   edit.username = username;
   edit.email = email;
   edit._id = id;
-
+  
   $.put('/profile', edit)
   .done(function(data){
     console.log(data);

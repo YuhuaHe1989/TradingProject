@@ -59,9 +59,11 @@ block content
         table.table.table-bordered.table-striped
           thead
             tr
-              th.col-xs-3 Item
-              th.col-xs-3 Price
-              th.col-xs-4 Description
+              th.col-xs-1 Item
+              th.col-xs-2 Price
+              th.col-xs-3 Description
+              th.col-xs-3 Can Exchange
+              th.col-xs-1 Pending
               th.col-xs-1 Edit
               th.col-xs-1 Delete
           tbody#list
@@ -70,6 +72,9 @@ block content
                 td.name= item.name
                 td.price= item.price
                 td.description= item.description
+                td.canExchange= item.canExchange 
+                  input(type="checkbox")
+                td.isPending= item.isPending
                 td: a.edit(href='#' data-toggle="modal" data-target="#editItemModal"): i.fa.fa-pencil-square-o.fa-lg
                 td: a.delete(href='#'): i.fa.fa-trash-o.fa-lg
 
