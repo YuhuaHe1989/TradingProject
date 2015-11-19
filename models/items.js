@@ -11,7 +11,8 @@ let itemSchema = Schema({
   description: { type: String, required: false },
   canExchange: {type: Boolean, default: true, required: true},
   isPending: {type: Boolean, default: false, required: true},
-  userId: {type: mongoose.Schema.ObjectId, ref: 'User', required: true}
+  userId: {type: mongoose.Schema.ObjectId, ref: 'User', required: true},
+  username: {type: String, required: false}
 });
 
 itemSchema.methods.exchange = function(exchangeItem, cb){
@@ -24,6 +25,7 @@ itemSchema.methods.exchange = function(exchangeItem, cb){
     exchangeItem.save(cb);
   });
 };
+
 
 Item  = mongoose.model('Item', itemSchema);
 module.exports = Item; 

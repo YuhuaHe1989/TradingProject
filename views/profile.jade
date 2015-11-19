@@ -34,20 +34,19 @@ block content
             img(src="http://static.highsnobiety.com/wp-content/uploads/2013/06/behind-kanye-wests-mask-01.jpg")#profilePic
           .span8
             h2#username Username
-            a.twitter-follow-button(href="https://twitter.com/kanyewest?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor", data-size="large"): Follow @Username
-            h6#age Age
-              a(href="https://twitter.com/intent/tweet").twitter-share-button.tweet Tweet
+            a.twitter-follow-button.twitterline(href="https://twitter.com/kanyewest?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor", data-size="large"): Follow @Username
+            a(href="https://twitter.com/intent/tweet").twitter-share-button.tweet.twitterline Tweet
           .span2
             .btn-group
-              a.btn.dropdown-toggle.btn-info(data-toggle="dropdown")
-                | Update
-                span.icon-cog.icon-white
-                span.caret
-              ul.dropdown-menu
-                li
-                  a(href="/profile/edit")#updateInfo
-                    span.icon-wrench
-                      | Edit
+            a.btn.dropdown-toggle.btn-info(data-toggle="dropdown")
+              | Update
+              span.icon-cog.icon-white
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="/profile/edit")#updateInfo
+                  span.icon-wrench
+                    | Edit
       .row 
       .input-group.tweetSomething
         input.form-control.searchEngine(type="text", placeholder="What's On Your Mind?")

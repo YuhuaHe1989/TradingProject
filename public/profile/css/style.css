@@ -67,6 +67,7 @@ button#register.btn-default, button#login.btn-default {
   border-radius: 20px;
   border: 2px white inset;
   background-color: transparent;
+  color: black;
 }
 
 .tweetSomething {
@@ -89,4 +90,29 @@ body, html {
 
 .profileeditbuttons {
   display: inline-block;
+}
+.navbar-default .navbar-nav>li>a {
+  border: none;
+}
+
+.badge {
+  background-color: red;
+}
+
+follow {
+  color: black;
+  border-radius: 20px;
+  border: 2px white inset;
+  background-color: transparent;
+  padding: 5px;
+}
+
+.h2, h2 {
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+
+.twitterline {
+  margin-right: 15px;
 }

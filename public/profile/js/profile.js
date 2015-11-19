@@ -54,7 +54,7 @@ function saveEditItem(){
     url: '/profile/' + username,
     data: edited,
     success: function(data){
-      console.log(data);
+      //console.log(data);
     }
   })
 
@@ -93,6 +93,7 @@ function addNewItem(){
   newItem.price = price;
   newItem.description = description;
   newItem.userId = userId;
+  newItem.username = username;
 
   $('#modalInputName').val(' ');
   $('#modalInputPrice').val(' ');
@@ -100,7 +101,9 @@ function addNewItem(){
 
   $.post('/profile/' + username, newItem)
   .done(function(data){
-    itemRow(data);
+    console.log('data',data);
+    console.log('new row', itemRow(data));
+    $('table').append(itemRow(data));
   })
   .fail(function(err){
     console.log(err);
@@ -115,8 +118,7 @@ function itemRow (newItem){
   $tr.find('.name').text(newItem.name);
   $tr.find('.price').text(newItem.price);
   $tr.find('.description').text(newItem.description);
-  $('#list').append($tr);
-
+  
   return $tr;
 }
 

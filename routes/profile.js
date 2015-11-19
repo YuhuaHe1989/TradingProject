@@ -43,9 +43,10 @@ router.post('/:username', function(req, res){
 });
 
 router.get('/:username', function(req, res){
-
-  Item.find({}, function(err, items) {
-    console.log(items);
+  //console.log('this is req body:', req.body);
+  console.log(req.params.username);
+  Item.find({'username': req.params.username}, function(err, items) {
+    console.log('itemssssss:', items);
     res.render('profile', {items: items});
   })
 });
