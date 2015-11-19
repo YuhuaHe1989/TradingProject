@@ -43,13 +43,14 @@ router.post('/:username', function(req, res){
 });
 
 router.get('/:username', function(req, res){
-console.log(req.body);
-  Item.find({userId: req.body.userId}, function(err, items) {
+
+  Item.find({}, function(err, items) {
+    console.log(items);
     res.render('profile', {items: items});
   })
 });
 
-router.delete('/', function(req, res){
+router.delete('/:username', function(req, res){
   console.log(req.body._id);
   Item.findByIdAndRemove(req.body._id, function(err, room) {
     res.status(err ? 400 : 200).send(err ? 'item delete failed' : 'item deleted.');
