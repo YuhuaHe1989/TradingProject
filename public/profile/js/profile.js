@@ -7,13 +7,13 @@ function init(){
   $('#updateInfo').click(updateInfo);
   $('#updateNewItem').click(addNewItem);
 
-  $.get('/profile/newitem')
+   $.get('/profile')
   .done(function(data){
-   
+    
   })
   .fail(function(err){
     console.log(err);
-  });
+  })
 }
 
 function addNewItem(){
@@ -30,15 +30,21 @@ function addNewItem(){
   $('#modalInputPrice').val(' ');
   $('#modalInputDescription').val(' ');
 
-  $.post('/profile/newitem', newItem)
+  $.post('/profile', newItem)
   .done(function(data){
     console.log('newItem:',data);
   })
   .fail(function(err){
     console.log(err);
-  });
+  })
 
-
+  // $.get('/profile/newitem', data)
+  // .done(function(data){
+  //   console.log('data',data);
+  // })
+  // .fail(function(err){
+  //   console.log(err);
+  // })
   $('#addItemModal').modal('hide');
 }
 

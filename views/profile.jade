@@ -65,11 +65,11 @@ block content
               th.col-xs-1 Edit
               th.col-xs-1 Delete
           tbody#list
-            each item in items
+            
               tr#sample
-                td.name= item.name
-                td.price= item.price
-                td.description= item.description
+                td.name = item.name
+                td.price = item.price
+                td.description = item.description
                 td: a.edit(href='#' data-toggle="modal" data-target="#myModal"): i.fa.fa-pencil-square-o.fa-lg
                 td: a.remove(href='#'): i.fa.fa-trash-o.fa-lg
 
