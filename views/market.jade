@@ -20,13 +20,14 @@ html(lang="en")
             th.col-xs-5 Description
             //- th.col-xs-1 Exchangeable
             th.col-xs-1 Swap  
-        tbody#list
-            tr#sample
-              td.name = element.name
-              td.message = element.message
-              td.time = element.time
+        tbody#list1
+          each element in others
+            tr#sample(data-value= element._id)
+              td.name= element.username
+              td.item= element.name
+              td.price= element.price
               td: a.edit(href='#' data-toggle="modal" data-target="#myModal")
-              td.swap
+              td: input(type="checkbox").swap.swapothers
       table.table.table-bordered
         thead
           tr.headtitle
@@ -37,12 +38,13 @@ html(lang="en")
             //- th.col-xs-1 Exchangeable
             th.col-xs-1 Swap  
         tbody#list
-            tr#sample
-              td.name = element.name
-              td.message = element.message
-              td.time = element.time
+          each item in items
+            tr#sample(data-value= item._id)
+              td.name= item.username
+              td.item= item.name
+              td.price= item.price
               td: a.edit(href='#' data-toggle="modal" data-target="#myModal")
-              td.swap
+              td: input(type="checkbox").swap.swapuser
 
     script(src='vendor/jquery/dist/jquery.min.js')
     script(src="vendor/bootstrap/dist/js/bootstrap.min.js")

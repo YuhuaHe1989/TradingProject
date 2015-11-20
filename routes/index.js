@@ -26,8 +26,25 @@ router.post('/market', function(req, res) {
 })
 
 router.get('/market', function(req, res){
-  console.log('get:', req.body)
-  res.render('market', {title: "Market"});
+  var others;
+
+  Item.find({}, function(err, otherItems){
+    others = otherItems.filter(function(item){
+      return item.username !== req.cookies.username
+    })
+  })
+
+  Item.find({username: req.cookies.username}, function(err, item) {
+    res.render('market', {items: item, others: others});
+  })
+})
+
+router.put('/market', function(req, res) {
+  // Item.find({username: req.body.username}, function(err, item) {
+  //   console.log('item',item);
+  //   res.status(err ? 400 : 200).send(err || item);
+  // })
+  console.log(req.body);
 })
 
 module.exports = router;

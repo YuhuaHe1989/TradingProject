@@ -1,9 +1,14 @@
 'use strict';
 
+var userItemId;
+var exchangeItemId;
+
 $(document).ready(init);
 
 function init(){
-  $('#exchange').on('click',exchangeItem); 
+  $('#exchange').on('click', exchangeItem); 
+  $('.swapuser').on('click', userCheckBoxChecked);
+  $('.swapothers').on('click', otherCheckBoxChecked);
 
   var user = {};
 
@@ -18,11 +23,45 @@ function init(){
     data: user,
     success: function(data) {
       console.log(data);
-
     }
   })
 }
 
 function exchangeItem(){
-  console.log('works');
+  var exchange = [];
+  var useritem = {
+    _id: userItemId
+  };
+  var exchangeitem = {
+    _id: exchangeItemId
+  };
+  exchange.push(useritem);
+  exchange.push(exchangeitem);
+
+  $.ajax({
+    type: 'PUT',
+    url: '/market',
+    data: {exchange: exchange},
+    success: function(data){
+      console.log('success echanged item');
+    }
+  })
+
+  
 }
+
+function userCheckBoxChecked() {
+  userItemId = $(this).closest('tr').data('value').replace(/"/g,'');
+  console.log('userId:',userItemId);
+  if (this.checked) {
+    $(".swapuser").attr('disabled', true);
+  }
+}; 
+
+function otherCheckBoxChecked() {
+  exchangeItemId = $(this).closest('tr').data('value').replace(/"/g,'');
+  console.log('exchangeId:',exchangeItemId);
+  if (this.checked) {
+    $(".swapothers").attr('disabled', true);
+  }
+}; 
