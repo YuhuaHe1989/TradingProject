@@ -7,7 +7,7 @@ var User = require('../models/user');
 var Item = require('../models/items');
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Welcome To Twitter' });
+  res.render('index', { title: 'Buy, Sell, Swap Fashion Designer Clothes' });
 });
 
 router.get('/register', function(req, res){

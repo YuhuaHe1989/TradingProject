@@ -112,7 +112,18 @@ follow {
   padding-bottom: 5px;
 }
 
-
 .twitterline {
   margin-right: 15px;
+}
+
+.btn-default {
+  background-color: transparent;
+  border: 2px white inset; 
+  border-radius: 8px;
+  margin-left: 15px;
+}
+
+.btn-default:hover {
+  background-color: red;
+  color: white;
 }

@@ -12,12 +12,7 @@ block css
             span.icon-bar
           a.navbar-brand(href='/')= title
         #nav-collapse.collapse.navbar-collapse
-          .col-md-3
-            .input-group.searchEngine
-              .div
-              input.form-control.searchEngine(type="text", placeholder="Search For Cool People")
-              span.input-group-addon.btn.btn-default.glyphicon.glyphicon-search
-          .col-lg-6
+          .col-lg-8
             ul.nav.navbar-nav.navbar-right
               li
                 a(href='/login')#profileLink Profile
@@ -25,19 +20,26 @@ block css
                 a(href='/register')#registerLink Register
               li
                 a(href='/login')#loginLink Login
-              li
-                a(href="/")#logout Logout
       .container
         br
         .jumbotron
-          h2 Connect With Inspirational Minds 
-          #slides
-            img(src="https://pbs.twimg.com/media/BtU0rP8IYAExSaR.jpg", width="470", height="528").slides
-            img(src="http://www.industrytap.com/wp-content/uploads/2013/09/elon-musk.jpg", width="470", height="528").slides
-            img(src="http://www.blogcdn.com/www.stylelist.com/media/2013/10/emma-watson-style.jpg", width="470", height="528").slides
-            img(src="http://static4.businessinsider.com/image/5341ab7b6bb3f752745bc23f/steve-jobs-14-most-inspiring-quotes.jpg", width="470", height="528").slides
-            img(src="http://www.bruceleeactionmuseum.org/blam/image/Take%20Action/Conscience%20copy.jpg", width="470", height="528").slides
-            img(src="https://pbs.twimg.com/profile_images/559957672766619650/yThbnfUv.jpeg", width="470", height="528").slides
+          h2 Exclusive Access To The Most Secretive Closets
+          #slideshow
+            div
+              img(src="http://the-talks.com/wp-content/uploads/2014/10/Rick-Owens-01.jpg", width="870", height="528").slides
+            div
+              img(src="http://static01.nyt.com/images/2013/09/12/fashion/12WESTBROOK_SPAN/12zWESTBROOK-articleLarge.jpg", width="870", height="528").slides
+            div
+              img(src="http://6uh9u7hhy8-flywheel.netdna-ssl.com/wp-content/uploads/2012/08/kanye-west-kim-kardashian-new-york-city.jpg", width="870", height="528").slides
+            div 
+              img(src="http://www.efashiongossips.com/wp-content/uploads/2015/09/Emma-Watson.jpg", width="870", height="528").slides 
+            div 
+              img(src="http://www2.pictures.zimbio.com/gi/Diane+Von+Furstenberg+Front+Row+Spring+2013+I-oM3kzpdgUl.jpg", width="870", height="528").slides
+
+
+
+
+
 
 block js
   script(src="http://code.jquery.com/jquery-latest.min.js")

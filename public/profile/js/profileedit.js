@@ -8,7 +8,7 @@ function init() {
 }
 
 function cancel() {
-  window.location.replace('/profile');
+  window.location.replace('/profile/' + username);
 }
 
 function saveChange() {
@@ -30,13 +30,5 @@ console.log('username',username);
       window.location.replace('/profile/' + username);
     }
   })
-  // $.put('/profile', edit)
-  // .done(function(data){
-  //   console.log(data);
-  //   window.location.replace('/profile');
-  // })
-  // .fail(function(err){
-  //   console.log(err);
-  // })
 }
 

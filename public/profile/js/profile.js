@@ -10,7 +10,7 @@ $(document).ready(init);
 function init(){
   $('#profileLink').click(goToUserProfile);
   $('#updateInfo').click(updateInfo);
-  $('#updateNewItem').click(addNewItem);
+  $('#updateNewItem').on('click',addNewItem);
   $('.edit').on('click',editItem);
   $('.delete').on('click',deleteItem);
   $('#editExistItem').on('click',saveEditItem);
@@ -101,15 +101,15 @@ function addNewItem(){
 
   $.post('/profile/' + username, newItem)
   .done(function(data){
-    // console.log('data',data);
-    // console.log('new row', itemRow(data));
     $('#list').append(itemRow(data));
+    location.reload();
   })
   .fail(function(err){
     console.log(err);
   })
 
   $('#addItemModal').modal('hide');
+
 }
 
 function itemRow (newItem){

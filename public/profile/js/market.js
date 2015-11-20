@@ -9,6 +9,7 @@ function init(){
   $('#exchange').on('click', exchangeItem); 
   $('.swapuser').on('click', userCheckBoxChecked);
   $('.swapothers').on('click', otherCheckBoxChecked);
+  $('#reset').on('click', resetCheckbox);
 
   var user = {};
 
@@ -27,6 +28,13 @@ function init(){
   })
 }
 
+function resetCheckbox() {
+    $(".swap").attr("disabled",false);
+    $(".swap").attr("checked",false);
+    $(".swapothers").attr("disabled",false);
+    $(".swapothers").attr("checked",false); 
+}
+
 function exchangeItem(){
   var exchange = [];
   var useritem = {
@@ -35,6 +43,7 @@ function exchangeItem(){
   var exchangeitem = {
     _id: exchangeItemId
   };
+
   exchange.push(useritem);
   exchange.push(exchangeitem);
 
@@ -43,11 +52,9 @@ function exchangeItem(){
     url: '/market',
     data: {exchange: exchange},
     success: function(data){
-      console.log('success exchanged item');
+      location.reload(true);
     }
   })
-
-  
 }
 
 function userCheckBoxChecked() {
@@ -65,3 +72,7 @@ function otherCheckBoxChecked() {
     $(".swapothers").attr('disabled', true);
   }
 }; 
+
+
+
+

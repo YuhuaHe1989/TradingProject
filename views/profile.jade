@@ -14,17 +14,12 @@ block content
             span.icon-bar
           a.navbar-brand(href='/') #{title}
         #nav-collapse.collapse.navbar-collapse
-          .col-md-3
-            .input-group.searchEngine
-              .div
-              input.form-control.searchEngine(type="text", placeholder="Search For Cool People")
-              span.input-group-addon.btn.btn-default.glyphicon.glyphicon-search
-          .col-lg-6
+          .col-lg-12
             ul.nav.navbar-nav.navbar-right
               li
                 a(href='/login')#profileLink Profile
               li
-                a(href="/market").inbox Market <span class="badge">42</span></a>
+                a(href="/market").inbox Market <span class="badge">2</span></a>
               li
                 a(href="/")#logout Logout
     .col-md-4
@@ -38,31 +33,30 @@ block content
             a(href="https://twitter.com/intent/tweet").twitter-share-button.tweet.twitterline Tweet
           .span2
             .btn-group
-            a.btn.dropdown-toggle.btn-info(data-toggle="dropdown")
-              | Update
-              span.icon-cog.icon-white
-              span.caret
-            ul.dropdown-menu
-              li
-                a(href="/profile/edit")#updateInfo
-                  span.icon-wrench
+              a.btn.dropdown-toggle.btn-info(data-toggle="dropdown")
+                | Update
+                span.icon-cog.icon-white
+                span.caret
+              ul.dropdown-menu
+                li
+                  a(href="/profile/edit")#updateInfo
+                    span.icon-wrench
                     | Edit
-      .row 
-      .input-group.tweetSomething
-        input.form-control.searchEngine(type="text", placeholder="What's On Your Mind?")
-        span.input-group-addon.btn.btn-default.tweet: i.fa.fa-paper-plane-o
+          .row 
+          .input-group.tweetSomething
+            input.form-control.searchEngine(type="text", placeholder="What's On Your Mind?")
+            span.input-group-addon.btn.btn-default.tweet: i.fa.fa-paper-plane-o
     .col-md-8
-      .row
-        button.btn.btn-default(data-toggle="modal" data-target="#addItemModal")#addNewItem Add
       .row
         table.table.table-bordered.table-striped
           thead
             tr
-              th.col-xs-1 Item
-              th.col-xs-2 Price
-              th.col-xs-3 Description
-              th.col-xs-3 Can Exchange
-              th.col-xs-1 Pending
+              th.col-xs-3 Item 
+                button.btn.btn-default(data-toggle="modal" data-target="#addItemModal")#addNewItem Add
+              th.col-xs-1 Price
+              th.col-xs-4 Description
+              th.col-xs-1 Exchangeable
+              th.col-xs-1 Up For Swap
               th.col-xs-1 Edit
               th.col-xs-1 Delete
           tbody#list
@@ -76,7 +70,6 @@ block content
                 td.isPending= item.isPending
                 td: a.edit(href='#' data-toggle="modal" data-target="#editItemModal"): i.fa.fa-pencil-square-o.fa-lg
                 td: a.delete(href='#'): i.fa.fa-trash-o.fa-lg
-
   #addItemModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
     .modal-dialog(role='document')
       .modal-content
@@ -85,7 +78,7 @@ block content
             span(aria-hidden='true') ×
           h4#myModalLabel.modal-title Add New Item to Trade
         .modal-body
-          label Name:
+          label Item:
           input#modalInputName(type='text')
         .modal-body
           label Price:
