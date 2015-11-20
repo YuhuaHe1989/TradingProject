@@ -43,7 +43,7 @@ function exchangeItem(){
     url: '/market',
     data: {exchange: exchange},
     success: function(data){
-      console.log('success echanged item');
+      console.log('success exchanged item');
     }
   })
 

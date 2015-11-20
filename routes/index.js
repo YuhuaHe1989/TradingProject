@@ -40,11 +40,27 @@ router.get('/market', function(req, res){
 })
 
 router.put('/market', function(req, res) {
-  // Item.find({username: req.body.username}, function(err, item) {
-  //   console.log('item',item);
-  //   res.status(err ? 400 : 200).send(err || item);
-  // })
-  console.log(req.body);
+ 
+  Item.findById(req.body.exchange[0]._id, function(err, user) {
+    console.log('originaluser:',user);
+    if (err) res.status(400).send(err);
+    Item.findById(req.body.exchange[1]._id, function(err, exchange) {
+      if (err) res.status(400).send(err);
+      var temp,tempuserId;
+      temp = user.username;
+      user.username = exchange.username;
+      exchange.username = temp;
+
+      tempuserId = user.userId;
+      user.userId = exchange.userId;
+      exchange.userId = tempuserId;
+
+      user.save();
+      exchange.save();
+    });
+  })
+  
+
 })
 
 module.exports = router;
