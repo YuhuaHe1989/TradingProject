@@ -1,0 +1,49 @@
+doctype html
+html(lang="en")
+  head
+    title Market
+    link(href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet")
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet')
+    link(href="css/style.css" rel="stylesheet")
+  body
+    .container
+      .headline
+        h1 Market
+      .row
+        button.btn.btn-primary Exchange Items
+      table.table.table-bordered
+        thead
+          tr.headtitle
+            th.col-xs-3 Username
+            th.col-xs-3 Item
+            th.col-xs-1 Price
+            th.col-xs-5 Description
+            //- th.col-xs-1 Exchangeable
+            th.col-xs-1 Swap  
+        tbody#list
+            tr#sample
+              td.name = element.name
+              td.message = element.message
+              td.time = element.time
+              td: a.edit(href='#' data-toggle="modal" data-target="#myModal")
+              td.swap
+      table.table.table-bordered
+        thead
+          tr.headtitle
+            th.col-xs-3 Username
+            th.col-xs-3 Item
+            th.col-xs-1 Price
+            th.col-xs-5 Description
+            //- th.col-xs-1 Exchangeable
+            th.col-xs-1 Swap  
+        tbody#list
+            tr#sample
+              td.name = element.name
+              td.message = element.message
+              td.time = element.time
+              td: a.edit(href='#' data-toggle="modal" data-target="#myModal")
+              td.swap
+
+    script(src='vendor/jquery/dist/jquery.min.js')
+    script(src="vendor/bootstrap/dist/js/bootstrap.min.js")
+    script(src='js/main.js')

@@ -21,13 +21,13 @@ function saveChange() {
   edit.username = username;
   edit.email = email;
   edit._id = id;
-
+console.log('username',username);
   $.ajax({
     type: 'PUT',
-    url: '/profile',
+    url: '/profile/'+username,
     data: edit,
     success: function(data) {
-      window.location.replace('/profile');
+      window.location.replace('/profile/' + username);
     }
   })
   // $.put('/profile', edit)

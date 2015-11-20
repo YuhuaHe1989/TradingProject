@@ -15,4 +15,8 @@ router.get('/login', function(req, res){
   res.render('login', {title: "Login"});
 })
 
+router.get('/market', function(req, res){
+  res.render('market', {title: "Market"});
+})
+
 module.exports = router;

@@ -143,7 +143,7 @@ function updateInfo(e){
   update.username = username;
   update._id = id;
 
-  $.post('/profile' + username, update)
+  $.post('/profile/' + username, update)
   .done(function(data){
     $('#username').text(data.username);
     window.location.replace('/profile/edit');
