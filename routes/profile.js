@@ -44,7 +44,7 @@ router.post('/:username', function(req, res){
 
 router.get('/:username', function(req, res){
   //console.log('this is req body:', req.body);
-  console.log(req.params.username);
+  //console.log(req.params.username);
   Item.find({'username': req.params.username}, function(err, items) {
     console.log('itemssssss:', items);
     res.render('profile', {items: items});
@@ -52,7 +52,7 @@ router.get('/:username', function(req, res){
 });
 
 router.delete('/:username', function(req, res){
-  console.log(req.body._id);
+  console.log('delete',req.body._id);
   Item.findByIdAndRemove(req.body._id, function(err, room) {
     res.status(err ? 400 : 200).send(err ? 'item delete failed' : 'item deleted.');
   });

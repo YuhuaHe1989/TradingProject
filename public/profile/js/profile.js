@@ -64,8 +64,9 @@ function saveEditItem(){
 function deleteItem(){
   var itemDelete = {};
   var itemId = $(this).closest('tr').data('value').replace(/"/g,'');
-
+// console.log(itemId);
   itemDelete._id = itemId;
+
   $.ajax({
     type: 'DELETE',
     url: '/profile/' + username,
@@ -79,7 +80,6 @@ function deleteItem(){
 
 function editItem(){
   itemId = $(this).closest('tr').data('value').replace(/"/g,'');
-  console.log(itemId);
   editIndex = $(this).closest('tr').index();
 }
 
@@ -101,9 +101,9 @@ function addNewItem(){
 
   $.post('/profile/' + username, newItem)
   .done(function(data){
-    console.log('data',data);
-    console.log('new row', itemRow(data));
-    $('table').append(itemRow(data));
+    // console.log('data',data);
+    // console.log('new row', itemRow(data));
+    $('#list').append(itemRow(data));
   })
   .fail(function(err){
     console.log(err);
