@@ -24,7 +24,7 @@ itemSchema.methods.exchange = function(exchangeItem, cb){
   this.save(function(){
     exchangeItem.save(cb);
   });
-};
+};  
 
 
 Item  = mongoose.model('Item', itemSchema);
