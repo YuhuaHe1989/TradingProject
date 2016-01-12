@@ -40,9 +40,7 @@ router.get('/market', function(req, res){
 })
 
 router.put('/market', function(req, res) {
- 
   Item.findById(req.body.exchange[0]._id, function(err, user) {
-    console.log('originaluser:',user);
     if (err) res.status(400).send(err);
     Item.findById(req.body.exchange[1]._id, function(err, exchange) {
       if (err) res.status(400).send(err);
@@ -59,8 +57,7 @@ router.put('/market', function(req, res) {
       exchange.save();
     });
   })
-  
-
+  res.send('done');
 })
 
 module.exports = router;
